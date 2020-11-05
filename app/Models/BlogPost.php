@@ -31,4 +31,8 @@ class BlogPost extends Model
      * @var array
      */
     protected $casts = [];
+
+    public function user(){
+        return $this->hasOne('App\Models\User', 'id', 'user_id');
+    }
 }

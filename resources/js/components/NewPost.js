@@ -61,7 +61,7 @@ const NewPost = () => {
                         variant="contained"
                         onClick={() => {
                             setSaving(true)
-                            axios.post('/api/posts/create-blog-post', {title, content})
+                            axios.post('/posts/create-blog-post', {title, content})
                                 .then(() => {
                                     history.push('/')
                                 })

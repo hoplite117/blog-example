@@ -28,7 +28,6 @@ const Nav = () => {
                 <Grid item>
                     <Button
                         variant="contained"
-                        size="large"
                         href="/"
                     >
                         Home
@@ -37,7 +36,6 @@ const Nav = () => {
                 <Grid item>
                     <Button
                         variant="contained"
-                        size="large"
                         href="/manage"
                     >
                         Manage Blog
@@ -46,7 +44,6 @@ const Nav = () => {
                 <Grid item>
                     <Button
                         variant="contained"
-                        size="large"
                         href="/new-post"
                     >
                         Write a New Post

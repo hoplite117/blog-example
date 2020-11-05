@@ -8,6 +8,9 @@ import { Typography } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
     post: {
         padding: "40px"
+    },
+    loader: {
+        textAlign: "center"
     }
 }))
 
@@ -17,7 +20,7 @@ const Posts = () => {
     const classes = useStyles()
 
     useEffect(() => {
-        axios.get('/api/posts/get-all-posts')
+        axios.get('/posts/get-all-posts')
             .then(response => {
                 setPosts(response.data)
                 setLoading(false)
@@ -31,8 +34,8 @@ const Posts = () => {
 
     if (loading){
         return (
-            <div>
-                Loading...
+            <div className={classes.loader}>
+                <Typography variant="h6">Loading...</Typography>
             </div>
         )
     }
@@ -40,11 +43,9 @@ const Posts = () => {
         return (
             <Grid container justify="center" spacing={3}>
                 <Grid item>
-                    <Paper className={classes.post}>
-                        <Typography variant="h6">
-                            Nothing yet!
-                        </Typography>
-                    </Paper>
+                    <Typography variant="h6">
+                        Nothing yet!
+                    </Typography>
                 </Grid>
             </Grid>
         )
@@ -56,6 +57,7 @@ const Posts = () => {
                     <Grid item xs={12} sm={4} xl={3}>
                         <Paper className={classes.post}>
                             <Typography variant="h6">{post.title}</Typography>
+                            <Typography variant="body2">Author: {post.user.name}</Typography>
                             <Typography variant="body1">{post.content}</Typography>
                         </Paper>
                     </Grid>
