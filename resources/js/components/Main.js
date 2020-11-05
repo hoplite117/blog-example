@@ -1,10 +1,11 @@
 import React from 'react';
+import Posts from './Posts';
 
 const Main = () => {
     return (
         <div>
-            This is the main component
             {console.log(user ? user : "Not authenticated")}
+            <Posts />
         </div>
     )
 }
