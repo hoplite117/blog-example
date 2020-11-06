@@ -37,4 +37,9 @@ class BlogPostController extends Controller
         $post->save();
         return $post->id;
     }
+
+    public function deletePost(Request $request){
+        $post = BlogPost::find($request->postId);
+        $post->delete();
+    }
 }

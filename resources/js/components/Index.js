@@ -16,6 +16,8 @@ function Index() {
             <BrowserRouter>
                 <Route exact path="/" component={Main} />
                 <Route exact path="/login" render={() => {window.location.href="login"}} />
+                <Route exact path="/register" render={() => {window.location.href="register"}} />
+                <Route exact path="/logout" render={() => {window.location.href="logout"}} />
                 <PrivateRoute path="/manage" component={Manage} />
                 <PrivateRoute path="/new-post" component={NewPost} />
             </BrowserRouter>

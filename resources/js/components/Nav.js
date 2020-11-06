@@ -10,24 +10,31 @@ const useStyles = makeStyles((theme) => ({
         padding: "40px"
     },
     wrapper: {
-        marginBottom: "50px"
+        marginBottom: "50px",
+        marginTop: "30px"
+    },
+    title: {
+        textAlign: "center"
     }
 }))
 
 const Nav = () => {
+    const [selected, setSelected] = useState("Home")
     const classes = useStyles()
+    const path = window.location.pathname
 
     return (
         <div className={classes.wrapper}>
             <Grid container spacing={1} justify="center" alignItems="center">
                 <Grid item>
-                    <Typography variant="h4">
+                    <Typography variant="h4" className={classes.title}>
                         Example Blog
                     </Typography>
                 </Grid>
                 <Grid item>
                     <Button
-                        variant="contained"
+                        variant={path === "/" ? "contained" : "outlined"}
+                        color="primary"
                         href="/"
                     >
                         Home
@@ -35,7 +42,8 @@ const Nav = () => {
                 </Grid>
                 <Grid item>
                     <Button
-                        variant="contained"
+                        variant={path === "/manage" ? "contained" : "outlined"}
+                        color="primary"
                         href="/manage"
                     >
                         Manage Blog
@@ -43,7 +51,8 @@ const Nav = () => {
                 </Grid>
                 <Grid item>
                     <Button
-                        variant="contained"
+                        variant={path === "/new-post" ? "contained" : "outlined"}
+                        color="primary"
                         href="/new-post"
                     >
                         Write a New Post

@@ -17,6 +17,9 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
     Route::post('/posts/create-blog-post', [App\Http\Controllers\BlogPostController::class, 'createBlogPost']);
+    Route::post('/posts/delete-post', [App\Http\Controllers\BlogPostController::class, 'deletePost']);
+    Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
+    Route::get('/manage/get-all-users', [App\Http\Controllers\ManageController::class, 'getAllUsers']);
 });
 
 Route::get('/posts/get-all-posts', [App\Http\Controllers\BlogPostController::class, 'getAllPosts']);
